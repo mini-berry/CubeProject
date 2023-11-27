@@ -1,0 +1,31 @@
+usb\gpio.o: ../Core/Src/gpio.c
+usb\gpio.o: ../Core/Inc/gpio.h
+usb\gpio.o: ../Core/Inc/main.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+usb\gpio.o: ../Core/Inc/stm32f1xx_hal_conf.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+usb\gpio.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+usb\gpio.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h
+usb\gpio.o: ../Drivers/CMSIS/Include/core_cm3.h
+usb\gpio.o: D:\Program Files\Keil\ARM\AC5\Bin\..\include\stdint.h
+usb\gpio.o: ../Drivers/CMSIS/Include/cmsis_version.h
+usb\gpio.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+usb\gpio.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+usb\gpio.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+usb\gpio.o: D:\Program Files\Keil\ARM\AC5\Bin\..\include\stddef.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
+usb\gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h

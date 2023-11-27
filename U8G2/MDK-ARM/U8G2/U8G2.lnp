@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+"u8g2\startup_stm32f103xe.o"
+"u8g2\main.o"
+"u8g2\gpio.o"
+"u8g2\i2c.o"
+"u8g2\usart.o"
+"u8g2\stm32f1xx_it.o"
+"u8g2\stm32f1xx_hal_msp.o"
+"u8g2\stm32f1xx_hal_gpio_ex.o"
+"u8g2\stm32f1xx_hal_i2c.o"
+"u8g2\stm32f1xx_hal.o"
+"u8g2\stm32f1xx_hal_rcc.o"
+"u8g2\stm32f1xx_hal_rcc_ex.o"
+"u8g2\stm32f1xx_hal_gpio.o"
+"u8g2\stm32f1xx_hal_dma.o"
+"u8g2\stm32f1xx_hal_cortex.o"
+"u8g2\stm32f1xx_hal_pwr.o"
+"u8g2\stm32f1xx_hal_flash.o"
+"u8g2\stm32f1xx_hal_flash_ex.o"
+"u8g2\stm32f1xx_hal_exti.o"
+"u8g2\stm32f1xx_hal_tim.o"
+"u8g2\stm32f1xx_hal_tim_ex.o"
+"u8g2\stm32f1xx_hal_uart.o"
+"u8g2\system_stm32f1xx.o"
+--strict --scatter "U8G2\U8G2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "U8G2.map" -o U8G2\U8G2.axf

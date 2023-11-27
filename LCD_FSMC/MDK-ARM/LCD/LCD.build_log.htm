@@ -1,0 +1,97 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: lane lau, 1, LIC=EXJT4-F09BA-WFXI7-E1SRZ-HWEZL-1X2CQ
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.38.0.0
+Toolchain Path:  D:\Program Files\Keil\ARM\AC5\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Users\exsg\Documents\CubeIDE\LCD\MDK-ARM\LCD.uvprojx
+Project File Date:  09/20/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Program Files\Keil\ARM\AC5\Bin'
+Rebuild target 'LCD'
+assembling startup_stm32f103xe.s...
+compiling stm32f1xx_it.c...
+compiling gpio.c...
+compiling usart.c...
+compiling main.c...
+../Core/Inc/lcd.h(226): warning:  #1-D: last line of file ends without a newline
+  void LCD_ShowString(uint16_t x, uint16_t y, uint8_t *p, uint8_t size, uint16_t bg, uint16_t color);
+../Core/Src/main.c(103): warning:  #177-D: variable "x"  was declared but never referenced
+    uint16_t x, y;
+../Core/Src/main.c(103): warning:  #177-D: variable "y"  was declared but never referenced
+    uint16_t x, y;
+../Core/Src/main.c: 3 warnings, 0 errors
+compiling fsmc.c...
+compiling stm32f1xx_hal_msp.c...
+compiling stm32f1xx_ll_fsmc.c...
+compiling stm32f1xx_hal_gpio_ex.c...
+compiling stm32f1xx_hal_rcc.c...
+compiling stm32f1xx_hal.c...
+compiling stm32f1xx_hal_cortex.c...
+compiling stm32f1xx_hal_gpio.c...
+compiling stm32f1xx_hal_rcc_ex.c...
+compiling stm32f1xx_hal_pwr.c...
+compiling stm32f1xx_hal_dma.c...
+compiling stm32f1xx_hal_exti.c...
+compiling stm32f1xx_hal_flash_ex.c...
+compiling stm32f1xx_hal_flash.c...
+compiling stm32f1xx_hal_tim.c...
+compiling stm32f1xx_hal_sram.c...
+compiling stm32f1xx_hal_tim_ex.c...
+compiling system_stm32f1xx.c...
+compiling stm32f1xx_hal_uart.c...
+linking...
+LCD\LCD.axf: Error: L6218E: Undefined symbol lv_init (referred from main.o).
+LCD\LCD.axf: Error: L6218E: Undefined symbol lv_port_disp_init (referred from main.o).
+LCD\LCD.axf: Error: L6218E: Undefined symbol lv_tick_inc (referred from main.o).
+LCD\LCD.axf: Error: L6218E: Undefined symbol lv_timer_handler (referred from main.o).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 4 error messages.
+"LCD\LCD.axf" - 4 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil.STM32F1xx_DFP.2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_LCD
+  D:/KeilPack/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  D:/KeilPack/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+Target not created.
+Build Time Elapsed:  00:00:14
+</pre>
+</body>
+</html>

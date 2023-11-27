@@ -1,0 +1,24 @@
+{
+    "folders": [],
+    "settings": {
+        "files.associations": {
+            "touch.h": "c",
+            "stm32f1xx_hal.h": "c",
+            "delay.h": "c",
+            "main.h": "c",
+            "fsmc.h": "c",
+            "lcd.h": "c",
+            "stdio.h": "c",
+            "string.h": "c",
+            "gpio.h": "c",
+            "usart.h": "c",
+            "lvgl.h": "c",
+            "lv_port_disp.h": "c",
+            "lv_mem.h": "c",
+            "lv_demo_benchmark.h": "c",
+            "lv_demos.h": "c",
+            "lv_demo_widgets.h": "c"
+        }
+    },
+    "extensions": {}
+}
