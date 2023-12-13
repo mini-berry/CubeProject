@@ -48,8 +48,13 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+// 存储接收到的数据
 double X, Y, Z = 0;
+// 存储解算出的角度
 TriAngle Angle;
+// 存储收到的数据
+char receiveData[100];
+uint32_t receiveLen;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -94,6 +99,7 @@ int main(void)
   MX_TIM1_Init();
   MX_USB_DEVICE_Init();
   MX_USART1_UART_Init();
+  userUSB_Restart();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -103,23 +109,15 @@ int main(void)
   PWMStart();
   while (1)
   {
-    
-    for (double i = 30; i < 90; i += 0.1)
+    if (receiveLen != 0)
     {
-      Angle.A = i;
-      Angle.B = i;
-      Angle.C = i;
-      ServoSetAngel(Angle);
-      HAL_Delay(10);
+      // 解析单位为mm
+      sscanf(receiveData, "%lf,%lf,%lf;", &X, &Y, &Z);
+      userPrint("X: %.2lf, Y: %.2lf, Z: %.2lf\n", X, Y, Z);
+      receiveLen = 0;
+      Angle = CalAngel(X, Y, Z);
     }
-    for (double i = 90; i > 30; i -= 0.1)
-    {
-      Angle.A = i;
-      Angle.B = i;
-      Angle.C = i;
-      ServoSetAngel(Angle);
-      HAL_Delay(10);
-    }
+    HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
