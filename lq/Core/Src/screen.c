@@ -44,7 +44,7 @@ void ledCon()
     } else {
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
     }
-    // pwm灯，反装
+    // pwm灯，闪烁
     if (pwmSwithable == 0) {
         if (ld2Con == 1) {
             HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
