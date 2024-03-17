@@ -20,7 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_cdc_if.h"
-
+#include "userGeneral.h"
 /* USER CODE BEGIN INCLUDE */
 
 /* USER CODE END INCLUDE */
@@ -258,10 +258,12 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t *pbuf, uint16_t length)
  */
 static int8_t CDC_Receive_FS(uint8_t *Buf, uint32_t *Len)
 {
+  #ifdef USE_USB
   receiveLen = *Len;
   memcpy(receiveData, Buf, *Len);
   receiveData[*Len] = '\n';
   receiveData[*Len + 1] = '\0';
+  #endif
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
   return (USBD_OK);

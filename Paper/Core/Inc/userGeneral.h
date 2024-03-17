@@ -7,13 +7,13 @@
 #include "stdarg.h"
 
 // 启用USB串口输出
-#if 1
+#if 0
 #define USE_USB
 #include "usbd_cdc_if.h"
 #endif
 
 // 启用串口输出
-#if 0
+#if 1
 #ifdef HAL_UART_MODULE_ENABLED
 #define USE_UART huart1
 #else
