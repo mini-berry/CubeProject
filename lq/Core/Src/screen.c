@@ -255,7 +255,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
                 htim2.Instance->ARR -= 20;
             else
                 htim2.Instance->ARR += 20;
-
             if (pwmSwitchCount >= 50) {
                 pwmSwitchCount = 0;
                 pwmSwithable   = 1;

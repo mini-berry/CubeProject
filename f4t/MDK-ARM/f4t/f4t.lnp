@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp.sp
+"f4t\startup_stm32f405xx.o"
+"f4t\main.o"
+"f4t\gpio.o"
+"f4t\stm32f4xx_it.o"
+"f4t\stm32f4xx_hal_msp.o"
+"f4t\stm32f4xx_hal_tim.o"
+"f4t\stm32f4xx_hal_tim_ex.o"
+"f4t\stm32f4xx_hal_rcc.o"
+"f4t\stm32f4xx_hal_rcc_ex.o"
+"f4t\stm32f4xx_hal_flash.o"
+"f4t\stm32f4xx_hal_flash_ex.o"
+"f4t\stm32f4xx_hal_flash_ramfunc.o"
+"f4t\stm32f4xx_hal_gpio.o"
+"f4t\stm32f4xx_hal_dma_ex.o"
+"f4t\stm32f4xx_hal_dma.o"
+"f4t\stm32f4xx_hal_pwr.o"
+"f4t\stm32f4xx_hal_pwr_ex.o"
+"f4t\stm32f4xx_hal_cortex.o"
+"f4t\stm32f4xx_hal.o"
+"f4t\stm32f4xx_hal_exti.o"
+"f4t\system_stm32f4xx.o"
+--strict --scatter "f4t\f4t.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "f4t.map" -o f4t\f4t.axf

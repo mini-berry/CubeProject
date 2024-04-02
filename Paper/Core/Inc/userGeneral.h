@@ -1,7 +1,7 @@
 #ifndef _USERGENERAL_H_
 #define _USERGENERAL_H_
 
-#include "stm32f1xx_hal.h"
+#include "main.h"
 #include "string.h"
 #include "stdio.h"
 #include "stdarg.h"

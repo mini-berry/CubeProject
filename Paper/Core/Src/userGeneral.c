@@ -24,7 +24,7 @@ void userPrint(const char *format, ...)
     if (strlen(format) > MESSAGE_LEN)
     {
 #ifdef USE_UART
-        HAL_UART_Transmit(&huart1, (uint8_t *)"String length is not enough.", strlen("String length is not enough."), 50);
+        HAL_UART_Transmit(&USE_UART, (uint8_t *)"String length is not enough.", strlen("String length is not enough."), 50);
 #endif
 
 #ifdef USE_USB
@@ -39,7 +39,7 @@ void userPrint(const char *format, ...)
     vsnprintf(message, sizeof(message), format, args);
 
 #ifdef USE_UART
-    HAL_UART_Transmit(&huart1, (uint8_t *)message, strlen(message), 50);
+    HAL_UART_Transmit(&USE_UART, (uint8_t *)message, strlen(message), 50);
 #endif
 
 #ifdef USE_USB
