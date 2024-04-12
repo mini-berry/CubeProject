@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -57,6 +59,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LED6_Pin GPIO_PIN_13
+#define LED6_GPIO_Port GPIOC
+#define LED7_Pin GPIO_PIN_14
+#define LED7_GPIO_Port GPIOC
+#define LED8_Pin GPIO_PIN_15
+#define LED8_GPIO_Port GPIOC
 #define B4_Pin GPIO_PIN_0
 #define B4_GPIO_Port GPIOA
 #define B1_Pin GPIO_PIN_0
@@ -65,6 +73,16 @@ void Error_Handler(void);
 #define B2_GPIO_Port GPIOB
 #define B3_Pin GPIO_PIN_2
 #define B3_GPIO_Port GPIOB
+#define LED1_Pin GPIO_PIN_8
+#define LED1_GPIO_Port GPIOC
+#define LED2_Pin GPIO_PIN_9
+#define LED2_GPIO_Port GPIOC
+#define LED3_Pin GPIO_PIN_10
+#define LED3_GPIO_Port GPIOC
+#define LED4_Pin GPIO_PIN_11
+#define LED4_GPIO_Port GPIOC
+#define LED5_Pin GPIO_PIN_12
+#define LED5_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 

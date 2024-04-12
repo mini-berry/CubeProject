@@ -2,7 +2,7 @@
 #define __I2C_H
 
 #include "main.h"
-
+typedef unsigned char uchar;
 void I2CStart(void);
 void I2CStop(void);
 unsigned char I2CWaitAck(void);
