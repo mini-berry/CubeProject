@@ -1,0 +1,187 @@
+{
+  "name": "G1",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    ".eide/deps",
+    "Core/Src"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "Application",
+        "files": [],
+        "folders": [
+          {
+            "name": "MDK-ARM",
+            "files": [
+              {
+                "path": "MDK-ARM/startup_stm32g431xx.s"
+              }
+            ],
+            "folders": []
+          }
+        ]
+      },
+      {
+        "name": "Drivers",
+        "files": [],
+        "folders": [
+          {
+            "name": "CMSIS",
+            "files": [
+              {
+                "path": "Core/Src/system_stm32g4xx.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "STM32G4xx_HAL_Driver",
+            "files": [
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c"
+              },
+              {
+                "path": "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c"
+              }
+            ],
+            "folders": []
+          }
+        ]
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "2f601e1011df6ff0c504d2ce7b9b20c2"
+  },
+  "targets": {
+    "G1": {
+      "excludeList": [],
+      "toolchain": "AC5",
+      "compileConfig": {
+        "cpuType": "Cortex-M4",
+        "floatingPointHardware": "single",
+        "useCustomScatterFile": false,
+        "scatterFilePath": "<YOUR_SCATTER_FILE>.sct",
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x5000"
+              },
+              "isChecked": true,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x08000000",
+                "size": "0x10000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "OpenOCD",
+      "uploadConfig": {
+        "bin": "",
+        "target": "stm32g4x",
+        "interface": "cmsis-dap-v1",
+        "baseAddr": "0x08000000"
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "Core/Inc",
+          "Drivers/STM32G4xx_HAL_Driver/Inc",
+          "Drivers/STM32G4xx_HAL_Driver/Inc/Legacy",
+          "Drivers/CMSIS/Device/ST/STM32G4xx/Include",
+          "Drivers/CMSIS/Include",
+          ".cmsis/include",
+          "MDK-ARM/RTE/_G1",
+          ".eide/deps"
+        ],
+        "libList": [],
+        "sourceDirList": [],
+        "defineList": [
+          "USE_HAL_DRIVER",
+          "STM32G431xx"
+        ]
+      }
+    }
+  },
+  "version": "3.3"
+}

@@ -6,7 +6,7 @@
  ******************************************************************************
  * @attention
  *
- * Copyright (c) 2023 STMicroelectronics.
+ * Copyright (c) 2024 STMicroelectronics.
  * All rights reserved.
  *
  * This software is licensed under terms that can be found in the LICENSE file
@@ -25,9 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "usbd_cdc_if.h"
-#include "user.h"
 #include "userGeneral.h"
+#include "user.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,15 +47,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-// 存储接收到的数据
-double X, Y, Z = 0;
-double A, B, C = 0;
-// 存储解算出的角度
-TriAngle Angle;
-TriPos Pos;
-// 存储收到的数据
-char receiveData[100];
-uint32_t receiveLen;
+extern float usbA, usbB, usbC;
+extern uint8_t usbGetPos;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -76,6 +68,7 @@ void SystemClock_Config(void);
  */
 int main(void)
 {
+
     /* USER CODE BEGIN 1 */
 
     /* USER CODE END 1 */
@@ -92,78 +85,28 @@ int main(void)
     /* Configure the system clock */
     SystemClock_Config();
 
-/* USER CODE BEGIN SysInit */
-#ifdef USE_USB
+    /* USER CODE BEGIN SysInit */
     userUSB_Restart();
-#endif
     /* USER CODE END SysInit */
 
     /* Initialize all configured peripherals */
     MX_GPIO_Init();
     MX_TIM1_Init();
-
-#ifdef USE_USB
     MX_USB_DEVICE_Init();
-    userUSB_Restart();
-#endif
-
-#ifdef USE_UART
     MX_USART1_UART_Init();
-    HAL_UARTEx_ReceiveToIdle_IT(&USE_UART, (uint8_t *)receiveData, 100);
-#endif
-
     /* USER CODE BEGIN 2 */
-
+    // userUSB_Restart();
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
-    while (1) {
-        // 等待启动信号
-        if (receiveLen != 0 && receiveData[0] == 'S' && receiveData[1] == ';') {
-            break;
-        }
-    }
     PWMStart();
+    RunPos(0, 0, 150);
     while (1) {
-        if (receiveLen != 0) {
-            if (receiveData[0] == 'A') {
-                if (sscanf(receiveData, "A%lf,%lf,%lf;", &A, &B, &C) == 3) {
-                    Angle.A = A;
-                    Angle.B = B;
-                    Angle.C = C;
-                    ServoSetAngle(Angle);
-                    TriPos Pos;
-                    Pos = ReverseCal(Angle);
-                    X   = Pos.X;
-                    Y   = Pos.Y;
-                    Z   = Pos.Z;
-                }
-            } else if (receiveData[0] == 'P') {
-                // 解析单位为mm
-                double newX, newY, newZ;
-                if (sscanf(receiveData, "P%lf,%lf,%lf;", &newX, &newY, &newZ) == 3) {
-                    diffPosType diffPos;
-                    diffPos = diffPosCal(X, Y, Z, newX, newY, newZ);
-                    diffAngleType diffAngle;
-                    diffAngle = diffAngleCal(diffPos);
-                    ServoSetAngle(diffAngle.A2);
-                    HAL_Delay(200);
-                    ServoSetAngle(diffAngle.A3);
-                    HAL_Delay(200);
-                    ServoSetAngle(diffAngle.A4);
-                    HAL_Delay(200);
-                    ServoSetAngle(diffAngle.A5);
-                    HAL_Delay(200);
-                    X = newX;
-                    Y = newY;
-                    Z = newZ;
-                }
-            }
-            receiveLen = 0;
-            HAL_Delay(1);
+        if (usbGetPos) {
+            usbGetPos = 0;
+            RunPos(usbA, usbB, usbC);
         }
-
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
@@ -227,7 +170,6 @@ void Error_Handler(void)
     /* User can add his own implementation to report the HAL error return state */
     __disable_irq();
     while (1) {
-        userPrint("Error.\n");
     }
     /* USER CODE END Error_Handler_Debug */
 }

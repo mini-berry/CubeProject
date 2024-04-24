@@ -29,7 +29,7 @@
 "paper\stm32f1xx_hal_tim.o"
 "paper\stm32f1xx_hal_tim_ex.o"
 "paper\stm32f1xx_hal_uart.o"
-"paper\system_stm32f1xx.o"
+"paper\system_stm32f1xx_1.o"
 "paper\usbd_core.o"
 "paper\usbd_ctlreq.o"
 "paper\usbd_ioreq.o"

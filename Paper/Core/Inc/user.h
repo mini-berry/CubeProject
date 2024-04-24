@@ -1,59 +1,49 @@
 #ifndef _USER_H_
 #define _USER_H_
-#define ERROR_A -18
-#define ERROR_B -21
-#define ERROR_C -22
 
-#define RE_LEN  1.244
-#define RF_LEN  0.524
-#define F_LEN   0.576
-#define E_LEN   0.076
-#define NAA     -91.0
+#define ERROR_A -14
+#define ERROR_B -19
+#define ERROR_C -18
+
+#define L_LEN   114
+#define SL_LEN  125
+#define R_LEN   48.586
+#define SR_LEN  31.586
+#define DIFFNUM 50
 
 #define SQRT3   1.7320508075688772935274463415
-#define Y1      (-0.5 * F_LEN / SQRT3)
+#define Y1      (-R_LEN / SQRT3)
 #define PI      3.1415926
-#include "stm32f1xx_hal.h"
+#include "main.h"
 #include "userGeneral.h"
 #include <math.h>
 
 typedef struct
 {
-    double A;
-    double B;
-    double C;
+    float A;
+    float B;
+    float C;
 } TriAngle;
 
 typedef struct
 {
-    double X;
-    double Y;
-    double Z;
+    float X;
+    float Y;
+    float Z;
 } TriPos;
 
-typedef struct
-{
-    TriPos P1;
-    TriPos P2;
-    TriPos P3;
-    TriPos P4;
-    TriPos P5;
-} diffPosType;
+#ifdef USE_UART
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size);
+#endif
 
-typedef struct
-{
-    TriAngle A1;
-    TriAngle A2;
-    TriAngle A3;
-    TriAngle A4;
-    TriAngle A5;
-} diffAngleType;
-
-diffPosType diffPosCal(double X, double Y, double Z, double newX, double newY, double newZ);
-diffAngleType diffAngleCal(diffPosType diffPos);
+void diffPosCal(TriPos currentPos, TriPos targetPos);
+void diffAngleCal(void);
 void PWMStart(void);
-void ServoSetAngle(TriAngle Angle);
+void ServoSetTriAngle(TriAngle Angle);
+void ServoSetAngle(float A, float B, float C);
 TriAngle CalAngle(TriPos Pos);
-TriPos ReverseCal(TriAngle Angle);
+// TriPos ReverseCal(TriAngle Angle);
+void RunPos(float X, float Y, float Z);
+void RunTriPos(TriPos targetPos);
 
 #endif
