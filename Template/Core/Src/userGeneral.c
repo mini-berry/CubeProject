@@ -10,9 +10,9 @@ void userUSB_Restart(void)
     __HAL_RCC_GPIOA_CLK_ENABLE();
     GPIO_InitTypeDef GPIO_Initure;
 
-    GPIO_Initure.Pin = GPIO_PIN_11 | GPIO_PIN_12;
-    GPIO_Initure.Mode = GPIO_MODE_OUTPUT_PP;
-    GPIO_Initure.Pull = GPIO_PULLDOWN;
+    GPIO_Initure.Pin   = GPIO_PIN_11 | GPIO_PIN_12;
+    GPIO_Initure.Mode  = GPIO_MODE_OUTPUT_PP;
+    GPIO_Initure.Pull  = GPIO_PULLDOWN;
     GPIO_Initure.Speed = GPIO_SPEED_FREQ_HIGH;
     HAL_GPIO_Init(GPIOA, &GPIO_Initure);
 
@@ -21,10 +21,9 @@ void userUSB_Restart(void)
 
 void userPrint(const char *format, ...)
 {
-    if (strlen(format) > MESSAGE_LEN)
-    {
+    if (strlen(format) > MESSAGE_LEN) {
 #ifdef USE_UART
-        HAL_UART_Transmit(&huart1, (uint8_t *)"String length is not enough.", strlen("String length is not enough."), 50);
+        HAL_UART_Transmit(&USE_UART, (uint8_t *)"String length is not enough.", strlen("String length is not enough."), 50);
 #endif
 
 #ifdef USE_USB
@@ -39,7 +38,7 @@ void userPrint(const char *format, ...)
     vsnprintf(message, sizeof(message), format, args);
 
 #ifdef USE_UART
-    HAL_UART_Transmit(&huart1, (uint8_t *)message, strlen(message), 50);
+    HAL_UART_Transmit(&USE_UART, (uint8_t *)message, strlen(message), 50);
 #endif
 
 #ifdef USE_USB
@@ -50,21 +49,20 @@ void userPrint(const char *format, ...)
 }
 void userPrintStatus(HAL_StatusTypeDef Status)
 {
-    switch (Status)
-    {
-    case HAL_OK:
-        userPrint("HAL_OK\n");
-        break;
-    case HAL_ERROR:
-        userPrint("HAL_ERROR\n");
-        break;
-    case HAL_BUSY:
-        userPrint("HAL_BUSY\n");
-        break;
-    case HAL_TIMEOUT:
-        userPrint("HAL_TIMEOUT\n");
-        break;
-    default:
-        break;
+    switch (Status) {
+        case HAL_OK:
+            userPrint("HAL_OK\n");
+            break;
+        case HAL_ERROR:
+            userPrint("HAL_ERROR\n");
+            break;
+        case HAL_BUSY:
+            userPrint("HAL_BUSY\n");
+            break;
+        case HAL_TIMEOUT:
+            userPrint("HAL_TIMEOUT\n");
+            break;
+        default:
+            break;
     }
 }
