@@ -1,9 +1,9 @@
 #include "user.h"
 
-char receiveData[64] = {0};
+uint8_t receiveData[100] = {0};
 uint32_t receiveLen;
-float usbA, usbB, usbC;
-uint8_t usbGetPos = 0;
+float posX, posY, posZ;
+uint8_t dataGet = 0;
 
 extern UART_HandleTypeDef huart1;
 
@@ -17,18 +17,28 @@ TriAngle diffAngle[DIFFNUM + 1];
 #ifdef USE_UART
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-    if (huart == &huart1) {
-        switch (HAL_UARTEx_GetRxEventType(huart)) {
-            case HAL_UART_RXEVENT_IDLE:
-                receiveLen = Size;
-                HAL_UARTEx_ReceiveToIdle_IT(huart, (uint8_t *)receiveData, 100);
-                break;
-            case HAL_UART_RXEVENT_TC:
-                break;
-            case HAL_UART_RXEVENT_HT:
-                break;
-            default:
-                break;
+    if (huart == &huart1)
+    {
+        switch (HAL_UARTEx_GetRxEventType(huart))
+        {
+        case HAL_UART_RXEVENT_IDLE:
+            receiveLen += Size;
+            if (receiveData[receiveLen - 1] == ';')
+            {
+                dataGet = 1;
+                receiveData[receiveLen] = '\0';
+                receiveLen = 0;
+                HAL_UARTEx_ReceiveToIdle_IT(&huart1, receiveData + receiveLen, 50);
+            }
+            else
+                HAL_UARTEx_ReceiveToIdle_IT(&huart1, receiveData + receiveLen, 50);
+            break;
+        case HAL_UART_RXEVENT_TC:
+            break;
+        case HAL_UART_RXEVENT_HT:
+            break;
+        default:
+            break;
         }
     }
 }
@@ -64,13 +74,14 @@ __STATIC_INLINE double SolveAngle(double X, double Y, double Z)
 {
     double A = (X * X + Y * Y + Z * Z + L_LEN * L_LEN - SL_LEN * SL_LEN - Y1 * Y1) / (2 * Z);
 
-    double B     = (Y1 - Y) / (Z);
+    double B = (Y1 - Y) / (Z);
     double delta = -(A + B * Y1) * (A + B * Y1) + L_LEN * (L_LEN * B * B + L_LEN);
     if (delta < 0)
         return -91;
-    else {
-        double YF    = (Y1 - A * B - sqrt(delta)) / (B * B + 1);
-        double ZF    = A + B * YF;
+    else
+    {
+        double YF = (Y1 - A * B - sqrt(delta)) / (B * B + 1);
+        double ZF = A + B * YF;
         double theta = 180 * atan(-ZF / (Y1 - YF)) / PI;
         if (YF > Y1)
             theta = theta + 180;
@@ -107,7 +118,8 @@ TriAngle CalAngle(TriPos Pos)
 void diffPosCal(TriPos currentPos, TriPos targetPos)
 {
     const static float diffnumf = DIFFNUM;
-    for (int8_t i = 0; i < diffnumf + 1; ++i) {
+    for (int8_t i = 0; i < diffnumf + 1; ++i)
+    {
         diffPos[i].X = i / diffnumf * targetPos.X + (diffnumf - i) / diffnumf * currentPos.X;
         diffPos[i].Y = i / diffnumf * targetPos.Y + (diffnumf - i) / diffnumf * currentPos.Y;
         diffPos[i].Z = i / diffnumf * targetPos.Z + (diffnumf - i) / diffnumf * currentPos.Z;
@@ -116,7 +128,10 @@ void diffPosCal(TriPos currentPos, TriPos targetPos)
 
 void diffAngleCal(void)
 {
-    for (int8_t i = 0; i < DIFFNUM + 1; ++i) { diffAngle[i] = CalAngle(diffPos[i]); }
+    for (int8_t i = 0; i < DIFFNUM + 1; ++i)
+    {
+        diffAngle[i] = CalAngle(diffPos[i]);
+    }
 }
 
 void RunTriPos(TriPos targetPos)
@@ -124,7 +139,8 @@ void RunTriPos(TriPos targetPos)
     diffPosCal(currentPos, targetPos);
     currentPos = targetPos;
     diffAngleCal();
-    for (int8_t i = 0; i < DIFFNUM + 1; ++i) {
+    for (int8_t i = 0; i < DIFFNUM + 1; ++i)
+    {
         ServoSetAngle(diffAngle[i].A, diffAngle[i].B, diffAngle[i].C);
         HAL_Delay(10);
     }

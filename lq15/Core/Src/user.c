@@ -44,26 +44,28 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
     static uint8_t Bt   = 0;
     static float FreqAT = 0;
     static float FreqBT = 0;
+
     if (htim == &htim2) {
         At++;
         if (htim2.Channel == HAL_TIM_ACTIVE_CHANNEL_1) {
-            if (At > 39) {
-                uint32_t ICValue = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1) + 2;
-                __HAL_TIM_SetCounter(&htim2, 0);
-                FreqAT += ICValue;
+            uint32_t ICValue = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1) + 2;
+            __HAL_TIM_SetCounter(&htim2, 0);
+            FreqAT += ICValue;
+            if (At > 79) {
                 FreqA  = 80000000 / 800 / (float)FreqAT * At;
                 At     = 0;
                 FreqAT = 0;
             }
         }
     }
+
     if (htim == &htim3) {
         if (htim3.Channel == HAL_TIM_ACTIVE_CHANNEL_1) {
             Bt++;
-            if (Bt > 39) {
-                uint32_t ICValue = HAL_TIM_ReadCapturedValue(&htim3, TIM_CHANNEL_1) + 2;
-                __HAL_TIM_SetCounter(&htim3, 0);
-                FreqBT += ICValue;
+            int32_t ICValue = HAL_TIM_ReadCapturedValue(&htim3, TIM_CHANNEL_1) + 2;
+            __HAL_TIM_SetCounter(&htim3, 0);
+            FreqBT += ICValue;
+            if (Bt > 79) {
                 FreqB  = 80000000 / 800 / (float)FreqBT * Bt;
                 Bt     = 0;
                 FreqBT = 0;

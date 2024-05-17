@@ -1,0 +1,121 @@
+{
+    "name": "Paper",
+    "target": "Paper",
+    "toolchain": "AC5",
+    "toolchainLocation": "D:\\Program Files\\Keil5\\ARM\\AC5",
+    "toolchainCfgFile": "c:\\Users\\exsg\\.vscode\\extensions\\cl.eide-3.16.1\\res\\data\\models\\win32/arm.v5.model.json",
+    "buildMode": "fast|multhread",
+    "showRepathOnLog": true,
+    "threadNum": 12,
+    "rootDir": "d:\\Docu\\CubeProject\\Paper",
+    "dumpPath": "build\\Paper",
+    "outDir": "build\\Paper",
+    "ram": 20480,
+    "rom": 65536,
+    "incDirs": [
+        "Core/Inc",
+        "Drivers/STM32F1xx_HAL_Driver/Inc",
+        "Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+        "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+        "Drivers/CMSIS/Include",
+        "MDK-ARM/RTE/_Paper"
+    ],
+    "libDirs": [],
+    "defines": [
+        "USE_HAL_DRIVER",
+        "STM32F103x6"
+    ],
+    "sourceList": [
+        "Core/Src/gpio.c",
+        "Core/Src/gpio.c",
+        "Core/Src/main.c",
+        "Core/Src/main.c",
+        "Core/Src/stm32f1xx_hal_msp.c",
+        "Core/Src/stm32f1xx_hal_msp.c",
+        "Core/Src/stm32f1xx_it.c",
+        "Core/Src/stm32f1xx_it.c",
+        "Core/Src/system_stm32f1xx.c",
+        "Core/Src/system_stm32f1xx.c",
+        "Core/Src/tim.c",
+        "Core/Src/tim.c",
+        "Core/Src/usart.c",
+        "Core/Src/usart.c",
+        "Core/Src/user.c",
+        "Core/Src/userGeneral.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c",
+        "MDK-ARM/startup_stm32f103x6.s"
+    ],
+    "sourceParams": {},
+    "sourceParamsMtime": 1713186940313.2693,
+    "options": {
+        "version": 4,
+        "beforeBuildTasks": [],
+        "afterBuildTasks": [],
+        "global": {
+            "use-microLIB": true,
+            "output-debug-info": "enable",
+            "microcontroller-cpu": "cortex-m3",
+            "microcontroller-fpu": "cortex-m3",
+            "microcontroller-float": "cortex-m3",
+            "target": "cortex-m3"
+        },
+        "c/cpp-compiler": {
+            "optimization": "level-3",
+            "one-elf-section-per-function": true,
+            "c99-mode": true,
+            "C_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "CXX_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "warnings": "all-warnings"
+        },
+        "asm-compiler": {},
+        "linker": {
+            "output-format": "elf",
+            "xo-base": "",
+            "ro-base": "",
+            "rw-base": "",
+            "link-scatter": [
+                "\"d:/Docu/CubeProject/Paper/build/Paper/Paper.sct\""
+            ]
+        }
+    },
+    "env": {
+        "workspaceFolder": "d:\\Docu\\CubeProject\\Paper",
+        "workspaceFolderBasename": "Paper",
+        "OutDir": "d:\\Docu\\CubeProject\\Paper\\build\\Paper",
+        "OutDirRoot": "build",
+        "OutDirBase": "build\\Paper",
+        "ProjectName": "Paper",
+        "ConfigName": "Paper",
+        "ProjectRoot": "d:\\Docu\\CubeProject\\Paper",
+        "ExecutableName": "d:\\Docu\\CubeProject\\Paper\\build\\Paper\\Paper",
+        "SYS_Platform": "win32",
+        "SYS_DirSep": "\\",
+        "SYS_DirSeparator": "\\",
+        "SYS_PathSep": ";",
+        "SYS_PathSeparator": ";",
+        "SYS_EOL": "\r\n",
+        "ToolchainRoot": "D:\\Program Files\\Keil5\\ARM\\AC5"
+    },
+    "sha": {
+        "c/cpp-defines": "1071ef0bbed07264472d7f4648abf8c7",
+        "beforeBuildTasks": "d751713988987e9331980363e24189ce",
+        "afterBuildTasks": "d751713988987e9331980363e24189ce",
+        "global": "cab97363c56a7cd5c4d6d683dfcaa9f9",
+        "c/cpp-compiler": "6b961c7ab25acd2372f6c507ee50ebef",
+        "asm-compiler": "99914b932bd37a50b983c5e7c90ae93b",
+        "linker": "465ed9342a1dfaf439391bd4b4d2eb29"
+    }
+}
