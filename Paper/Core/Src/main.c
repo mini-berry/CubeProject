@@ -100,11 +100,9 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   PWMStart();
-  RunPos(0, 0, 150);
-  userPrint("test.\n");
+
   HAL_UARTEx_ReceiveToIdle_IT(&huart1, receiveData, 64);
   uint8_t cmd = 'R';
-
   while (1)
   {
     if (dataGet)
@@ -113,7 +111,7 @@ int main(void)
       {
         HAL_UART_Transmit(&huart1, &cmd, 1, 50);
         {
-          RunPos(0, 0, 150);
+          RunPos(0, 0, 30);
           dataGet = 0;
           break;
         }
@@ -135,7 +133,7 @@ int main(void)
       }
       else if (receiveData[0] == 'S')
       {
-        RunPos(0, 0, 150);
+        RunPos(0, 0, 30);
         HAL_UART_Transmit(&huart1, &cmd, 1, 50);
       }
       dataGet = 0;

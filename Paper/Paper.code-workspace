@@ -6,7 +6,8 @@
     ],
     "settings": {
         "files.associations": {
-            "user.h": "c"
+            "user.h": "c",
+            "main.h": "c"
         }
     },
     "extensions": {}

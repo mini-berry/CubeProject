@@ -9,7 +9,7 @@ extern UART_HandleTypeDef huart1;
 
 extern TIM_HandleTypeDef htim1;
 
-TriPos currentPos = {0, 0, 150};
+TriPos currentPos = {0, 0, 30};
 
 TriPos diffPos[DIFFNUM + 1];
 TriAngle diffAngle[DIFFNUM + 1];
@@ -142,7 +142,7 @@ void RunTriPos(TriPos targetPos)
     for (int8_t i = 0; i < DIFFNUM + 1; ++i)
     {
         ServoSetAngle(diffAngle[i].A, diffAngle[i].B, diffAngle[i].C);
-        HAL_Delay(10);
+        HAL_Delay(15);
     }
 }
 

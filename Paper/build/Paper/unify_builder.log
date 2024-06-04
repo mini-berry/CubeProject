@@ -218,3 +218,233 @@ Finished: 2 information, 0 warning and 58 error messages.
 [2024-05-17 15:00:03]	[done]
 	build successfully !
 
+[2024-05-19 14:12:49]	[done]
+	build successfully !
+
+[2024-05-19 15:11:39]	[done]
+	build successfully !
+
+[2024-05-19 15:55:27]	[done]
+	build successfully !
+
+[2024-05-22 16:27:46]	[done]
+	build successfully !
+
+[2024-05-22 16:29:30]	[done]
+	build successfully !
+
+[2024-05-22 16:31:12]	[done]
+	build successfully !
+
+[2024-05-22 16:32:01]	[done]
+	build successfully !
+
+[2024-05-22 16:34:02]	[done]
+	build successfully !
+
+[2024-05-22 16:34:36]	[done]
+	build successfully !
+
+[2024-05-22 16:35:11]	[done]
+	build successfully !
+
+[2024-05-22 16:36:18]	[done]
+	build successfully !
+
+[2024-05-22 16:36:55]	[done]
+	build successfully !
+
+[2024-05-22 16:38:27]	[done]
+	build successfully !
+
+[2024-05-22 16:38:37]	[done]
+	build successfully !
+
+[2024-05-22 16:38:49]	[done]
+	build successfully !
+
+[2024-05-22 16:39:02]	[done]
+	build successfully !
+
+[2024-05-22 16:39:10]	[done]
+	build successfully !
+
+[2024-05-22 16:39:18]	[done]
+	build successfully !
+
+[2024-05-22 16:39:29]	[done]
+	build successfully !
+
+[2024-05-22 16:40:03]	[done]
+	build successfully !
+
+[2024-05-22 16:40:16]	[done]
+	build successfully !
+
+[2024-05-22 16:40:27]	[done]
+	build successfully !
+
+[2024-05-22 16:40:41]	[done]
+	build successfully !
+
+[2024-05-22 16:41:21]	[done]
+	build successfully !
+
+[2024-05-22 16:41:33]	[done]
+	build successfully !
+
+[2024-05-22 16:41:45]	[done]
+	build successfully !
+
+[2024-05-22 16:41:57]	[done]
+	build successfully !
+
+[2024-05-22 16:42:16]	[done]
+	build successfully !
+
+[2024-05-22 16:42:33]	[done]
+	build successfully !
+
+[2024-05-22 16:56:40]	[done]
+	build successfully !
+
+[2024-05-22 16:56:53]	[done]
+	build successfully !
+
+[2024-05-22 16:59:04]	compilation failed at : "d:\Docu\CubeProject\Paper\Core\Src\user.c", exit code: 1
+command: 
+  "D:\Program Files\Keil5\ARM\AC5\bin\armcc.exe" -c --apcs=interwork -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -IMDK-ARM/RTE/_Paper -DUSE_HAL_DRIVER -DSTM32F103x6 --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\Paper\.obj\Core\Src\user.o --no_depend_system_headers --depend .\build\Paper\.obj\Core\Src\user.d .\Core\Src\user.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\user.c", line 69: Error:  #20: identifier "ERRoOR_B" is undefined
+      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, (int16_t)(((B + ERRoOR_B) - (-90)) * 2000 / 180 + 500 - 1));
+      ^
+.\Core\Src\user.c: 0 warnings, 1 error
+
+[2024-05-22 16:59:21]	[done]
+	build successfully !
+
+[2024-05-22 17:00:17]	[done]
+	build successfully !
+
+[2024-05-22 17:00:35]	[done]
+	build successfully !
+
+[2024-05-22 17:01:19]	[done]
+	build successfully !
+
+[2024-05-22 17:02:15]	[done]
+	build successfully !
+
+[2024-05-22 17:03:54]	compilation failed at : "d:\Docu\CubeProject\Paper\Core\Src\user.c", exit code: 1
+command: 
+  "D:\Program Files\Keil5\ARM\AC5\bin\armcc.exe" -c --apcs=interwork -ICore/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy -IDrivers/CMSIS/Device/ST/STM32F1xx/Include -IDrivers/CMSIS/Include -IMDK-ARM/RTE/_Paper -DUSE_HAL_DRIVER -DSTM32F103x6 --cpu Cortex-M3 --li --c99 -D__MICROLIB -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\Paper\.obj\Core\Src\user.o --no_depend_system_headers --depend .\build\Paper\.obj\Core\Src\user.d .\Core\Src\user.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\Core\Src\user.c", line 85: Error:  #20: identifier "PI" is undefined
+          double theta = 180 * atan(-ZF / (Y1 - YF)) / PI;
+                                                       ^
+.\Core\Src\user.c: 0 warnings, 1 error
+
+[2024-05-22 17:04:25]	[done]
+	build successfully !
+
+[2024-05-23 10:31:38]	[done]
+	build successfully !
+
+[2024-05-23 10:31:59]	[done]
+	build successfully !
+
+[2024-05-23 10:32:08]	[done]
+	build successfully !
+
+[2024-05-23 10:33:37]	[done]
+	build successfully !
+
+[2024-05-23 10:54:17]	[done]
+	build successfully !
+
+[2024-05-23 10:54:27]	[done]
+	build successfully !
+
+[2024-05-23 12:21:10]	[done]
+	build successfully !
+
+[2024-05-23 12:21:30]	[done]
+	build successfully !
+
+[2024-05-23 12:22:16]	[done]
+	build successfully !
+
+[2024-05-23 12:23:04]	[done]
+	build successfully !
+
+[2024-05-23 12:24:01]	[done]
+	build successfully !
+
+[2024-05-23 12:54:17]	[done]
+	build successfully !
+
+[2024-05-23 15:21:07]	[done]
+	build successfully !
+
+[2024-05-23 15:49:59]	[done]
+	build successfully !
+
+[2024-05-23 15:50:14]	[done]
+	build successfully !
+
+[2024-05-23 15:51:48]	[done]
+	build successfully !
+
+[2024-05-23 16:22:03]	[done]
+	build successfully !
+
+[2024-05-24 02:59:37]	[done]
+	build successfully !
+
+[2024-05-24 02:59:44]	[done]
+	build successfully !
+
+[2024-05-24 03:00:53]	[done]
+	build successfully !
+
+[2024-05-24 03:01:10]	[done]
+	build successfully !
+
+[2024-05-24 03:08:53]	[done]
+	build successfully !
+
+[2024-05-24 03:11:21]	[done]
+	build successfully !
+
+[2024-05-24 03:12:20]	[done]
+	build successfully !
+
+[2024-05-24 03:12:49]	[done]
+	build successfully !
+
+[2024-05-24 03:13:11]	[done]
+	build successfully !
+
+[2024-05-24 03:13:58]	[done]
+	build successfully !
+
+[2024-05-24 03:14:27]	[done]
+	build successfully !
+
+[2024-05-24 03:14:41]	[done]
+	build successfully !
+
+[2024-05-24 03:17:24]	[done]
+	build successfully !
+
+[2024-05-24 03:18:12]	[done]
+	build successfully !
+
+[2024-05-24 03:18:28]	[done]
+	build successfully !
+
+[2024-05-24 20:06:18]	[done]
+	build successfully !
+

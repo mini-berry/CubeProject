@@ -1,1 +1,7 @@
-{}
+{
+    "files.associations": {
+        "user.h": "c",
+        "usergeneral.h": "c",
+        "main.h": "c"
+    }
+}
