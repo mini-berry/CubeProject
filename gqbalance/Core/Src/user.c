@@ -2,7 +2,6 @@
 extern char rx_data[10];
 extern float distance;
 extern float targetDis;
-extern int8_t newPos;
 extern uint32_t sTime;
 
 int8_t receiveLen = 0;
@@ -10,8 +9,7 @@ int8_t receiveLen = 0;
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
     if (hadc == &hadc1) {
-        // HAL_ADC_Stop_DMA(&hadc1);
-        // HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&ADCBuffer, 1);
+        distance = (float)HAL_ADC_GetValue(&hadc1) / 4095 * 3.3;
     }
 }
 
