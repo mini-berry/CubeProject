@@ -49,7 +49,7 @@
 char rx_data[10]  = {0};
 float distance    = 0;
 float targetDis   = 0;
-int32_t sTime     = 0;
+uint32_t sTime    = (uint32_t)-501;
 float kp          = 0.5;
 float ki          = 0.1;
 float kd          = 0.1;
@@ -102,19 +102,25 @@ int main(void)
   MX_TIM1_Init();
   MX_USART1_UART_Init();
   MX_TIM2_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+    // 蜂鸣器设�?0并启�?
     __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 0);
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-
+    // 校准adc1
     HAL_ADCEx_Calibration_Start(&hadc1);
     HAL_ADC_Start_IT(&hadc1);
-    HAL_UART_Receive_IT(&huart1, (uint8_t *)rx_data, 1);
-    HAL_Delay(501);
+    // �?始串口接�?
+    HAL_UART_Receive_IT(&USE_UART, (uint8_t *)rx_data, 1);
+    // 延时以避�?蜂鸣器工�?
+    while (1) {
+        /* code */
+    }
 
     while (1) {
         if (HAL_GetTick() - sTime > 500) {
