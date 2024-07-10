@@ -46,10 +46,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-char rx_data[10]  = {0};
-float distance    = 0;
-float targetDis   = 0;
+char rx_data[10] = {0};
+float distance   = 0;
+float targetDis  = 0;
+// 初始延时501躲开开机时的蜂鸣器
 uint32_t sTime    = (uint32_t)-501;
+float lastAngle   = 0;
 float kp          = 0.5;
 float ki          = 0.1;
 float kd          = 0.1;
@@ -117,9 +119,11 @@ int main(void)
     HAL_ADC_Start_IT(&hadc1);
     // 串口接收
     HAL_UART_Receive_IT(&USE_UART, (uint8_t *)rx_data, 1);
-    // 延时以避开蜂鸣器工作定时器
+    // 舵机设为0
+    ServoSetAngle(0);
 
     while (1) {
+        // 蜂鸣器定时
         if (HAL_GetTick() - sTime > 500) {
             __HAL_TIM_SetAutoreload(&htim1, 499);
             __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 249);

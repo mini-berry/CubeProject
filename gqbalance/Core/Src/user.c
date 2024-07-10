@@ -2,6 +2,7 @@
 extern char rx_data[10];
 extern float distance;
 extern float targetDis;
+extern float lastAngle;
 extern uint32_t sTime;
 uint32_t sTime2;
 
@@ -48,5 +49,19 @@ void ServoControl(float output)
         output = 90;
     else if (output < -90)
         output = -90;
-    __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, 124 + output * 125 / 90);
+    if (output > lastAngle)
+        ServoSetAngle(lastAngle);
+}
+
+void ServoSetAngle(float angle)
+{
+    // 0.5ms-2.5ms
+    // 周期设为5ms，频率200Hz
+    // 分频72，计数器自动重装载值为5000(1000000/200=5000)
+    // 0.5ms对应的计数器值为5000*0.5/20=125
+    // 2.5ms对应的计数器值为5000*2.5/20=625
+    // 1.5ms对应的计数器值为5000*1.5/20=375
+    // 每度对应的计数器值为(625-125)/180=2
+    // angle=-90时，计数器值为375,angle=90时，计数器值为625
+    __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, 375 + angle * 250 / 90);
 }

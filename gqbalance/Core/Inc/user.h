@@ -8,4 +8,6 @@
 #include "stdio.h"
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+void ServoSetAngle(float angle);
+void ServoControl(float output);
 #endif
