@@ -41,3 +41,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         HAL_UART_Receive_IT(&USE_UART, (uint8_t *)rx_data + receiveLen, 1);
     }
 }
+
+void ServoControl(float output)
+{
+    if (output > 90)
+        output = 90;
+    else if (output < -90)
+        output = -90;
+    __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, 124 + output * 125 / 90);
+}
