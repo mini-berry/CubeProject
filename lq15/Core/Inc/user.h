@@ -6,8 +6,8 @@
 #include "stdio.h"
 #include "string.h"
 
-#define XDTIME 15
-#define XDTIME2 100
+#define XDTIME1 15
+#define XDTIME2 200
 void Fresh();
 void ScanKey();
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim);

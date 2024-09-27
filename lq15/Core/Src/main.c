@@ -114,6 +114,7 @@ int main(void)
     LCD_SetBackColor(Black);
     LCD_Clear(Black);
     Fresh();
+    HAL_Delay(100);
     while (1) {
         ScanKey();
     /* USER CODE END WHILE */
@@ -283,9 +284,9 @@ static void MX_TIM6_Init(void)
 
   /* USER CODE END TIM6_Init 1 */
   htim6.Instance = TIM6;
-  htim6.Init.Prescaler = 79;
+  htim6.Init.Prescaler = 799;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim6.Init.Period = 9999;
+  htim6.Init.Period = 24999;
   htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {

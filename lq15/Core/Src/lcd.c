@@ -1,9 +1,3 @@
-/*
-  ����˵��: CT117EǶ��ʽ������LCD��������
-  ��������: Keil uVision 4.10
-  Ӳ������: CT117EǶ��ʽ������
-  ��    ��: 2011-8-9
-*/
 #include "lcd.h"
 #include "fonts.h"
 //#include "systick.h"
@@ -25,7 +19,7 @@ void Delay_LCD(u16 n)
 }
 
 /*
-	uC8230��Һ���������Ĵ�������
+	uC8230????????????????????
 */
 void REG_8230_Init(void)
 {
